@@ -1,0 +1,22 @@
+.overallDiv {
+
+}
+.titleSec {
+	background-color:green;
+	margin:20px;
+}
+.scoreSec {
+	background-color:blue;
+	margin:20px;
+}
+.questionSec {
+	background-color:purple;
+	margin:20px;
+}
+.controlSec {
+	background-color:white;
+	margin:20px;
+}
+footer {
+	background-color:pink;
+}
