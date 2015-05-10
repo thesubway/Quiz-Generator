@@ -22,7 +22,7 @@
 			<div id="controlSec">
 				4. Control Section
 				<div id="btnContainer">
-					<button id="startBtn">Start</button>
+					<button id="startBtn" onclick='showQuestion()'>Start</button>
 					<button id="nextBtn">Next</button>
 					<button id="quitBtn">Quit</button>
 				</div>
@@ -33,13 +33,16 @@
 		</div>
 	</body>
 	<script type="">
-			var questionNum = 0;
+			var questionNum = 1;
 			var numCorrect = 0;
 			var test;
 			var scoreSec;
 			var questionData;
 			function _(x) {
 				return document.getElementById(x);
+			}
+			function submitQuestion() {
+
 			}
 			function showQuestion() {
 				test = _("questionSec");
@@ -53,8 +56,8 @@
 					test.innerHTML += "<input type='radio' name='choices'>" + currentChoice + "<br>";
 					
 				};
+				test.innerHTML += "<button onclick='submitQuestion()'>Submit</button>"
 			}
-			this.showQuestion();
 	</script>
 
 	<!-- div around the whole thing -->
