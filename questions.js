@@ -63,11 +63,11 @@ var historyQuestions = [
 	{
 		question:"Anne Frank and Martin Luther King were born the same year.",
 		questionType: 1,
-		hoices: ["True","False"],
+		choices: ["True","False"],
 		correctAns: "True",
 	}
 ];
-var chemQuestions = [
+var scienceQuestions = [
 	{
 		question:"What is O?",
 		questionType: 1,
@@ -95,7 +95,7 @@ var chemQuestions = [
 	{
 		question:"Natural selection is based on:",
 		questionType: 1,
-		choices: ["Survival of the fittest","Attractive","Genetic Engineering"],
+		choices: ["Survival of the fittest","Attractive qualities","Genetic Engineering"],
 		correctAns: "Survival of the fittest",
 	}
 ];
