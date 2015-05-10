@@ -50,6 +50,10 @@
 			var questionType;
 			var questionList;
 			var answered = false;
+			
+			var selectedSubj = "Math";
+			var d = new Date();
+			_("titleSec").innerHTML = "Subject: "+selectedSubj +", Date: "+(d.getMonth()+1)+"/"+d.getDate()+"/"+d.getFullYear();
 
 			//for timer:
 			var x;
@@ -74,7 +78,7 @@
 				else if (selectedSubj == "Science") {
 					questionList = scienceQuestions;
 				}
-				_("titleSec").innerHTML = "Subject: "+selectedSubj;
+				_("titleSec").innerHTML = "Subject: "+selectedSubj +", Date: "+(d.getMonth()+1)+"/"+d.getDate()+"/"+d.getFullYear();
 				this.nextQuestion();
 			}
 			function submitQuestion() {
