@@ -21,7 +21,12 @@
 
 			</div>
 			<div id="controlSec">
-				4. Control Section
+				<div>4. Control Section</div>
+				<select id="subjectsList">
+  					<option name="subject" value="Math">Math</option>
+  					<option name="subject" value="History">History</option>
+  					<option name="subject" value="Science">Science</option>
+				</select>
 				<div id="btnContainer">
 					<button id="startBtn" onclick='showQuestion()'>Start</button>
 					<button id="nextBtn" onclick='nextQuestion()'>Next</button>
@@ -52,9 +57,20 @@
 				answered = false;
 				questionNum = -1;
 				numCorrect = 0;
-				questionList = mathQuestions;
+				var subjectsList = _("subjectsList");
+				var selectedSubj = subjectsList.value;
+				var subjs = document.getElementsByName("subject");
+				if (selectedSubj == "Math") {
+					questionList = mathQuestions;
+				}
+				else if (selectedSubj == "History") {
+					questionList = historyQuestions;
+				}
+				else if (selectedSubj == "Science") {
+					questionList = scienceQuestions;
+				}
+				_("titleSec").innerHTML = "Subject: "+selectedSubj;
 				this.nextQuestion();
-				
 			}
 			function submitQuestion() {
 				if (answered == true) {
