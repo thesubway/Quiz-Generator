@@ -50,7 +50,7 @@
 			var questionType;
 			var questionList;
 			var answered = false;
-			
+
 			var selectedSubj = "Math";
 			var d = new Date();
 			_("titleSec").innerHTML = "Subject: "+selectedSubj +", Date: "+(d.getMonth()+1)+"/"+d.getDate()+"/"+d.getFullYear();
@@ -79,6 +79,7 @@
 					questionList = scienceQuestions;
 				}
 				_("titleSec").innerHTML = "Subject: "+selectedSubj +", Date: "+(d.getMonth()+1)+"/"+d.getDate()+"/"+d.getFullYear();
+				questionList = this.shuffleQuestions();
 				this.nextQuestion();
 			}
 			function submitQuestion() {
@@ -132,7 +133,7 @@
 					this.endCelebration();
 				}
 				if (questionNum >= questionList.length-1) {
-					alert("Your final score is: "+numCorrect);
+					alert("Your final score is: "+numCorrect +"/"+questionList.length);
 					return;
 				};
 				updateScore(2);
@@ -193,6 +194,16 @@
         			x = 1;
     			}
     			_("scoreSec").style.background = color;
+			}
+			function shuffleQuestions() {
+				var tempList = questionList.slice();
+				var newList = [];
+				while (tempList.length > 0) {
+					var i = Math.floor(Math.random() * tempList.length);
+					newList.push(tempList[i]);
+					tempList.splice(i,1);
+				}
+				return newList;
 			}
 
 	</script>
