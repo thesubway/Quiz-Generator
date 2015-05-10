@@ -44,10 +44,12 @@
 			var userAns;
 			var questionType;
 			var questionList;
+			var answered = false;
 			function _(x) {
 				return document.getElementById(x);
 			}
 			function showQuestion() {
+				answered = false;
 				questionNum = -1;
 				numCorrect = 0;
 				questionList = scienceQuestions;
@@ -55,10 +57,16 @@
 				
 			}
 			function submitQuestion() {
+				if (answered == true) {
+					alert("already answered.");
+					return;
+				}
+				var checkboxesEmpty = true;
 				//retrieve each radio button:
 				choices = document.getElementsByName("choices");
 				for (var i = 0; i < choices.length; i++) {
 					if (choices[i].checked) {
+						checkboxesEmpty = false;
 						var ansIndex = choices[i].value;
 						userAns = questionData.choices[ansIndex];
 						if (userAns === correctAns) {
@@ -69,13 +77,20 @@
 							alert('wrong!');
 						}
 					};
-				}		
+				}
+				if (checkboxesEmpty == true) {
+					alert("Please select an answer.");
+				}
+				else {
+					answered = true;
+				}
 			}
 			function nextQuestion() {
 				if (questionNum >= questionList.length-1) {
 					alert("Your final score is: "+numCorrect);
 					return;
 				};
+				answered = false;
 				questionNum++;
 				test = _("questionSec");
 				scoreSec = _("scoreSec");
