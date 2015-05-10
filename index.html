@@ -10,7 +10,7 @@
 	<body>
 		<div id="overallDiv">
 			<div id="titleSec">
-				Subject: No Subject
+				Subject: Math
 			</div>
 			<div id="scoreSec">
 				<div>2. Score Section</div>
@@ -50,6 +50,11 @@
 			var questionType;
 			var questionList;
 			var answered = false;
+
+			//for timer:
+			var x;
+			var correctTimer;
+
 			function _(x) {
 				return document.getElementById(x);
 			}
@@ -86,13 +91,13 @@
 						var ansIndex = choices[i].value;
 						userAns = questionData.choices[ansIndex];
 						if (userAns === correctAns) {
-							alert('correct!');
 							numCorrect++;
+							this.changecolors();
+							updateScore(true);
 						}
 						else {
-							alert('wrong!');
+							updateScore(false);
 						}
-						updateScore();
 					};
 				}
 				if (checkboxesEmpty == true) {
@@ -103,10 +108,14 @@
 				}
 			}
 			function nextQuestion() {
+				if (correctTimer != null) {
+					this.endCelebration();
+				}
 				if (questionNum >= questionList.length-1) {
 					alert("Your final score is: "+numCorrect);
 					return;
 				};
+				updateScore(2);
 				answered = false;
 				questionNum++;
 				test = _("questionSec");
@@ -124,9 +133,37 @@
 				};
 				test.innerHTML += "<button onclick='submitQuestion()'>Submit</button>";
 			}
-			function updateScore() {
-				_("currentScore").innerHTML = "Score: "+numCorrect+ " / "+questionList.length;
+			function updateScore(correct) {
+				if (correct == 1) {
+					_("currentScore").innerHTML = "CORRECT! Score: "+numCorrect+ " / "+questionList.length;
+				}
+				else if (correct == 0) {
+					_("currentScore").innerHTML = "Wrong! Score: "+numCorrect+ " / "+questionList.length;
+					_("scoreSec").style.background = "red";
+				}
+				else {
+					_("currentScore").innerHTML = "Score: "+numCorrect+ " / "+questionList.length;
+				}
 			}
+			function changecolors() {
+			    x = 1;
+    			correctTimer = setInterval(change, 100);
+			}
+			function endCelebration() {
+				clearInterval(correctTimer);
+				_("scoreSec").style.background = "blue";
+			}
+			function change() {
+    			if (x === 1) {
+        			color = "yellow";
+        			x = 2;
+    			} else {
+        			color = "green";
+        			x = 1;
+    			}
+    			_("scoreSec").style.background = color;
+			}
+
 	</script>
 
 	<!-- div around the whole thing -->
