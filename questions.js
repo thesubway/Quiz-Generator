@@ -17,6 +17,12 @@ var mathQuestions = [
 		correctAns: nUndefined,
 	},
 	{
+		question:"What is 5 - 9?",
+		questionType: 2,
+		choices: ["-1","1","-4","4"],
+		correctAns: "-4",
+	},
+	{
 		question:"What does 1 + 1 equal?",
 		questionType: 1,
 		choices: ["window","11","infinity",noSolution],
@@ -29,16 +35,16 @@ var mathQuestions = [
 		correctAns: "0",
 	},
 	{
-		question:"What is 5 - 9?",
-		questionType: 1,
-		choices: ["-1","1","-4","4"],
-		correctAns: "-4",
-	},
-	{
 		question:"What is square root of 4?",
 		questionType: 1,
 		choices: ["1","2","4","1/4"],
 		correctAns: "2",
+	},
+	{
+		question:"What is 2 * 3?",
+		questionType: 2,
+		choices: ["-6","6","5","-1"],
+		correctAns: "6",
 	}
 ];
 var historyQuestions = [
@@ -74,6 +80,12 @@ var historyQuestions = [
 	}
 ];
 var scienceQuestions = [
+	{
+		question:"What is symbol for Hydrogen?",
+		questionType: 2,
+		choices: ["C","F","H","K"],
+		correctAns: "H",
+	},
 	{
 		question:"What is O?",
 		questionType: 1,
