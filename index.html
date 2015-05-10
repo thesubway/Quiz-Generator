@@ -14,6 +14,7 @@
 			</div>
 			<div id="scoreSec">
 				<div>2. Score Section</div>
+
 			</div>
 			<div id="questionSec">
 				3. Question Section
@@ -45,6 +46,11 @@
 			function _(x) {
 				return document.getElementById(x);
 			}
+			function showQuestion() {
+				questionNum = -1;
+				numCorrect = 0;
+				this.nextQuestion();
+			}
 			function submitQuestion() {
 				//retrieve each radio button:
 				choices = document.getElementsByName("choices");
@@ -62,11 +68,6 @@
 					};
 				}		
 			}
-			function showQuestion() {
-				questionNum = -1;
-				numCorrect = 0;
-				this.nextQuestion();
-			}
 			function nextQuestion() {
 				if (questionNum >= mathQuestions.length-1) {
 					alert("no more questions");
@@ -75,7 +76,7 @@
 				questionNum++;
 				test = _("questionSec");
 				scoreSec = _("scoreSec");
-				scoreSec.innerHTML = "Question "+(questionNum+1);
+				//scoreSec.innerHTML = "Question "+(questionNum+1);
 				questionData = mathQuestions[questionNum];
 				correctAns = questionData.correctAns;
 				questionType = questionData.questionType;
