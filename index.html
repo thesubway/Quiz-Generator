@@ -13,7 +13,7 @@
 				Subject: No Subject
 			</div>
 			<div id="scoreSec">
-				2. Score Section
+				<div>2. Score Section</div>
 			</div>
 			<div id="questionSec">
 				3. Question Section
@@ -41,6 +41,7 @@
 			var correctAns;
 			var choices;
 			var userAns;
+			var questionType;
 			function _(x) {
 				return document.getElementById(x);
 			}
@@ -67,13 +68,18 @@
 				this.nextQuestion();
 			}
 			function nextQuestion() {
+				if (questionNum >= mathQuestions.length-1) {
+					alert("no more questions");
+					return;
+				};
 				questionNum++;
 				test = _("questionSec");
 				scoreSec = _("scoreSec");
 				scoreSec.innerHTML = "Question "+(questionNum+1);
 				questionData = mathQuestions[questionNum];
 				correctAns = questionData.correctAns;
-				test.innerHTML = "Question "+(questionNum+1) + ":";
+				questionType = questionData.questionType;
+				test.innerHTML = "Question "+(questionNum+1) +" of "+mathQuestions.length+ ":";
 				test.innerHTML += "<div>" + questionData.question + "</div>";
 				for (var i = 0; i <questionData.choices.length; i++) {
 					var currentChoice = questionData.choices[i];

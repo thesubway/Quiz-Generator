@@ -26,5 +26,11 @@ var mathQuestions = [
 		questionType: 1,
 		choices: ["0","1","2","3","4"],
 		correctAns: "0",
+	},
+	{
+		question:"What is 5 - 9?",
+		questionType: 1,
+		choices: ["-1","1","-4","4"],
+		correctAns: "4",
 	}
 ];
