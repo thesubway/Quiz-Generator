@@ -8,22 +8,23 @@
 		<script src="questions.js"></script>
 	</head>
 	<body>
-		<div class="overallDiv">
-			<div class="titleSec">
+		<div id="overallDiv">
+			<div id="titleSec">
 				Subject: No Subject
 			</div>
-			<div class="scoreSec">
+			<div id="scoreSec">
 				2. Score Section
 			</div>
-			<div class="questionSec">
+			<div id="questionSec">
 				3. Question Section
+
 			</div>
-			<div class="controlSec">
+			<div id="controlSec">
 				4. Control Section
-				<div class="btnContainer">
-					<button class="startBtn">Start</button>
-					<button class="nextBtn">Next</button>
-					<button class="quitBtn">Quit</button>
+				<div id="btnContainer">
+					<button id="startBtn">Start</button>
+					<button id="nextBtn">Next</button>
+					<button id="quitBtn">Quit</button>
 				</div>
 			</div>
 			<footer>
@@ -31,6 +32,30 @@
 			</footer>
 		</div>
 	</body>
+	<script type="">
+			var questionNum = 0;
+			var numCorrect = 0;
+			var test;
+			var scoreSec;
+			var questionData;
+			function _(x) {
+				return document.getElementById(x);
+			}
+			function showQuestion() {
+				test = _("questionSec");
+				scoreSec = _("scoreSec");
+				scoreSec.innerHTML = "Question "+questionNum;
+				questionData = mathQuestions[questionNum];
+				test.innerHTML = "Question "+questionNum + ":";
+				test.innerHTML += "<div>" + questionData.question + "</div>";
+				for (var i = 0; i <questionData.choices.length; i++) {
+					var currentChoice = questionData.choices[i];
+					test.innerHTML += "<input type='radio' name='choices'>" + currentChoice + "<br>";
+					
+				};
+			}
+			this.showQuestion();
+	</script>
 
 	<!-- div around the whole thing -->
 </html>

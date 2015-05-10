@@ -1,28 +1,29 @@
-.overallDiv {
+#overallDiv {
 
 }
-.titleSec {
+#titleSec {
 	background-color:green;
 	margin:20px;
+	border: 1px solid #000000;
 }
-.scoreSec {
+#scoreSec {
 	background-color:blue;
 	margin:20px;
 }
-.questionSec {
+#questionSec {
 	background-color:purple;
 	margin:20px;
 }
-.controlSec {
-	background-color:grey;
+#controlSec {
+	border:1px solid #000000;
 	margin:20px;
 }
-.startBtn {
+#startBtn {
 	float: left;
 }
-.nextBtn {
+#nextBtn {
 }
-.quitBtn {
+#quitBtn {
 	float: right;
 }
 footer {
