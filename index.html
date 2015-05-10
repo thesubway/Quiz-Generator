@@ -14,7 +14,7 @@
 			</div>
 			<div id="scoreSec">
 				<div>2. Score Section</div>
-
+				<div id="currentScore"></div>
 			</div>
 			<div id="questionSec">
 				3. Question Section
@@ -52,7 +52,7 @@
 				answered = false;
 				questionNum = -1;
 				numCorrect = 0;
-				questionList = scienceQuestions;
+				questionList = mathQuestions;
 				this.nextQuestion();
 				
 			}
@@ -76,6 +76,7 @@
 						else {
 							alert('wrong!');
 						}
+						updateScore();
 					};
 				}
 				if (checkboxesEmpty == true) {
@@ -106,6 +107,9 @@
 					
 				};
 				test.innerHTML += "<button onclick='submitQuestion()'>Submit</button>";
+			}
+			function updateScore() {
+				_("currentScore").innerHTML = "Score: "+numCorrect+ " / "+questionList.length;
 			}
 	</script>
 

@@ -32,7 +32,13 @@ var mathQuestions = [
 		question:"What is 5 - 9?",
 		questionType: 1,
 		choices: ["-1","1","-4","4"],
-		correctAns: "4",
+		correctAns: "-4",
+	},
+	{
+		question:"What is square root of 4?",
+		questionType: 1,
+		choices: ["1","2","4","1/4"],
+		correctAns: "2",
 	}
 ];
 var historyQuestions = [
