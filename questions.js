@@ -87,7 +87,7 @@ var scienceQuestions = [
 		correctAns: "H",
 	},
 	{
-		question:"What is O?",
+		question:"What does the symbol O represent?",
 		questionType: 1,
 		choices: ["Zero","Oxygen","Organics",allOfAbove],
 		correctAns: "Oxygen",
