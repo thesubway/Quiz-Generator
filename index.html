@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- Name: Daniel Hoang
+	Student ID: W1023475 -->
 <html>
 	<head>
 		<title>
@@ -13,7 +15,7 @@
 				Subject: Math
 			</div>
 			<div id="scoreSec">
-				<div>2. Score Section</div>
+				<div>Score:</div>
 				<div id="currentScore"></div>
 			</div>
 			<div id="questionSec">
@@ -21,16 +23,16 @@
 
 			</div>
 			<div id="controlSec">
-				<div>4. Control Section</div>
+				<div></div>
 				<select id="subjectsList">
   					<option name="subject" value="Math">Math</option>
   					<option name="subject" value="History">History</option>
   					<option name="subject" value="Science">Science</option>
 				</select>
 				<div id="btnContainer">
-					<button id="startBtn" onclick='showQuestion()'>Start</button>
-					<button id="nextBtn" onclick='nextQuestion()'>Next</button>
-					<button id="quitBtn">Quit</button>
+					<div><button id="startBtn" onclick='showQuestion()'>Start</button></div>
+					<div><button id="nextBtn" onclick='nextQuestion()'>Next</button></div>
+					<div><button id="quitBtn" onclick='refreshPage()'>Quit</button></div>
 				</div>
 			</div>
 			<footer>
@@ -167,14 +169,14 @@
 			}
 			function updateScore(correct) {
 				if (correct == 1) {
-					_("currentScore").innerHTML = "CORRECT! Score: "+numCorrect+ " / "+questionList.length;
+					_("currentScore").innerHTML = "CORRECT! "+numCorrect+ " / "+questionList.length;
 				}
 				else if (correct == 0) {
-					_("currentScore").innerHTML = "Wrong! Score: "+numCorrect+ " / "+questionList.length;
+					_("currentScore").innerHTML = "Wrong! "+numCorrect+ " / "+questionList.length;
 					_("scoreSec").style.background = "red";
 				}
 				else {
-					_("currentScore").innerHTML = "Score: "+numCorrect+ " / "+questionList.length;
+					_("currentScore").innerHTML = ""+numCorrect+ " / "+questionList.length;
 				}
 			}
 			function changecolors() {
@@ -204,6 +206,9 @@
 					tempList.splice(i,1);
 				}
 				return newList;
+			}
+			function refreshPage() {
+				location.reload(true);
 			}
 
 	</script>
