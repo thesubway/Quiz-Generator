@@ -42,6 +42,8 @@
 	<script type="">
 			var questionNum = -1;
 			var numCorrect = 0;
+			var pointsScored = 0;
+			var pointsPossible = 0;
 			var test;
 			var scoreSec;
 			var questionData;
@@ -67,6 +69,7 @@
 				answered = false;
 				questionNum = -1;
 				numCorrect = 0;
+				pointsScored = 0;
 				var subjectsList = _("subjectsList");
 				var selectedSubj = subjectsList.value;
 				var subjs = document.getElementsByName("subject");
@@ -85,6 +88,10 @@
 				}
 				_("titleSec").innerHTML = "Subject: "+selectedSubj +", Date: "+(d.getMonth()+1)+"/"+d.getDate()+"/"+d.getFullYear();
 				questionList = this.shuffleQuestions();
+				pointsPossible = 0;
+				for (var i = 0; i < questionList.length; i++) {
+					pointsPossible += questionList[i].points;
+				};
 				this.nextQuestion();
 			}
 			function submitQuestion() {
@@ -126,6 +133,7 @@
 			function evaluateAns() {
 				if (userAns === correctAns) {
 							numCorrect++;
+							pointsScored += questionData.points
 							this.changecolors();
 							updateScore(true);
 						}
@@ -138,7 +146,7 @@
 					this.endCelebration();
 				}
 				if (questionNum >= questionList.length-1) {
-					alert("Your final score is: "+numCorrect +"/"+questionList.length);
+					alert("Your final score is: "+pointsScored +"/"+pointsPossible);
 					return;
 				};
 				updateScore(2);
@@ -149,7 +157,7 @@
 				questionData = questionList[questionNum];
 				correctAns = questionData.correctAns;
 				questionType = questionData.questionType;
-				test.innerHTML = "Question "+(questionNum+1) +" of "+questionList.length+ ":";
+				test.innerHTML = "Question "+(questionNum+1) +" of "+questionList.length+ " (" +questionData.points+ " points):";
 				test.innerHTML += "<div>" + questionData.question + "</div>";
 				if (questionType == 1) {
 					this.multipleChoice();
@@ -172,14 +180,14 @@
 			}
 			function updateScore(correct) {
 				if (correct == 1) {
-					_("currentScore").innerHTML = "CORRECT! "+numCorrect+ " / "+(questionNum+1);
+					_("currentScore").innerHTML = "CORRECT! "+pointsScored+ " / "+(pointsPossible);
 				}
 				else if (correct == 0) {
-					_("currentScore").innerHTML = "Wrong! "+numCorrect+ " / "+(questionNum+1);
+					_("currentScore").innerHTML = "Wrong! "+pointsScored+ " / "+(pointsPossible);
 					_("scoreSec").style.background = "red";
 				}
 				else {
-					_("currentScore").innerHTML = ""+numCorrect+ " / "+(questionNum+1);
+					_("currentScore").innerHTML = ""+pointsScored+ " / "+(pointsPossible);
 				}
 			}
 			function changecolors() {
