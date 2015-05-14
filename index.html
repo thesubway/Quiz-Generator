@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!-- Name: Daniel Hoang
-	Student ID: W1023475 -->
 <html>
 	<head>
 		<title>
@@ -19,7 +17,7 @@
 				<div id="currentScore"></div>
 			</center>
 			<center id="questionSec">
-				3. Question Section
+				Question Section
 
 			</center>
 			<div id="controlSec">
@@ -54,7 +52,7 @@
 			var userAns;
 			var questionType;
 			var questionList;
-			var answered = false;
+			var answered = true;
 
 			var selectedSubj = "Random";
 			var d = new Date();
@@ -68,7 +66,7 @@
 				return document.getElementById(x);
 			}
 			function showQuestion() {
-				answered = false;
+				answered = true;
 				questionNum = -1;
 				numCorrect = 0;
 				pointsScored = 0;
@@ -146,6 +144,10 @@
 			function nextQuestion() {
 				if (correctTimer != null) {
 					this.endCelebration();
+				}
+				if (answered == false) {
+					alert("Please answer current question first.");
+					return;
 				}
 				if (questionNum >= questionList.length-1) {
 					alert("Your final score is: "+pointsScored +"/"+pointsPossible);
