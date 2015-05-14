@@ -10,7 +10,7 @@
 	<body>
 		<div id="overallDiv">
 			<div id="titleSec">
-				Subject: Math
+				Subject: Random
 			</div>
 			<div id="scoreSec">
 				<div>Score:</div>
@@ -23,6 +23,7 @@
 			<div id="controlSec">
 				<div></div>
 				<select id="subjectsList">
+					<option name="subject" value="Random">Random</option>
   					<option name="subject" value="Math">Math</option>
   					<option name="subject" value="History">History</option>
   					<option name="subject" value="Science">Science</option>
@@ -51,7 +52,7 @@
 			var questionList;
 			var answered = false;
 
-			var selectedSubj = "Math";
+			var selectedSubj = "Random";
 			var d = new Date();
 			_("titleSec").innerHTML = "Subject: "+selectedSubj +", Date: "+(d.getMonth()+1)+"/"+d.getDate()+"/"+d.getFullYear();
 
@@ -69,6 +70,10 @@
 				var subjectsList = _("subjectsList");
 				var selectedSubj = subjectsList.value;
 				var subjs = document.getElementsByName("subject");
+				if (selectedSubj == "Random") {
+					var allSubjs = ["Math","History","Science"];
+					selectedSubj = allSubjs[Math.floor(Math.random()*3)];
+				}
 				if (selectedSubj == "Math") {
 					questionList = mathQuestions;
 				}
