@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- Name: Daniel Hoang
+	Student ID: W1023475 -->
 <html>
 	<head>
 		<title>
@@ -9,17 +11,17 @@
 	</head>
 	<body>
 		<div id="overallDiv">
-			<div id="titleSec">
-				Subject: Random
-			</div>
-			<div id="scoreSec">
+			<h2 id="titleSec">
+				Quiz Subject: Random
+			</h2>
+			<center id="scoreSec">
 				<div>Score:</div>
 				<div id="currentScore"></div>
-			</div>
-			<div id="questionSec">
+			</center>
+			<center id="questionSec">
 				3. Question Section
 
-			</div>
+			</center>
 			<div id="controlSec">
 				<div></div>
 				<select id="subjectsList">
@@ -56,7 +58,7 @@
 
 			var selectedSubj = "Random";
 			var d = new Date();
-			_("titleSec").innerHTML = "Subject: "+selectedSubj +", Date: "+(d.getMonth()+1)+"/"+d.getDate()+"/"+d.getFullYear();
+			_("titleSec").innerHTML = "Quiz Subject: "+selectedSubj +", Date: "+(d.getMonth()+1)+"/"+d.getDate()+"/"+d.getFullYear();
 
 			//for timer:
 			var x;
@@ -86,7 +88,7 @@
 				else if (selectedSubj == "Science") {
 					questionList = scienceQuestions;
 				}
-				_("titleSec").innerHTML = "Subject: "+selectedSubj +", Date: "+(d.getMonth()+1)+"/"+d.getDate()+"/"+d.getFullYear();
+				_("titleSec").innerHTML = "Quiz Subject: "+selectedSubj +", Date: "+(d.getMonth()+1)+"/"+d.getDate()+"/"+d.getFullYear();
 				questionList = this.shuffleQuestions();
 				pointsPossible = 0;
 				for (var i = 0; i < questionList.length; i++) {

@@ -3,16 +3,22 @@
 }
 #titleSec {
 	background-color:green;
+	color:#FFFF00;
 	margin:20px;
 	border: 1px solid #000000;
+	text-align: center;
 }
 #scoreSec {
 	background-color:blue;
+	color:#FFFFFF;
 	margin:20px;
+	font-size: 20px;
 }
 #questionSec {
 	background-color:purple;
+	color:#FF8080;
 	margin:20px;
+	font-size: 20px;
 }
 #controlSec {
 	border:1px solid #000000;
@@ -43,4 +49,5 @@
 footer {
 	margin-top:30px;
 	background-color:pink;
+	text-align: center;
 }
